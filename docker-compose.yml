@@ -1,0 +1,13 @@
+services:
+  mysql-db:
+    image: mysql:8.4
+    restart: always
+    environment:
+      MYSQL_USER: ${CHAT_API_MYSQL_USER}
+      MYSQL_PASSWORD: ${CHAT_API_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${CHAT_API_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${CHAT_API_MYSQL_DATABASE}
+    volumes:
+      - ${PWD}/_data/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
