@@ -9,5 +9,5 @@ router = APIRouter(prefix="/health", tags=["health"])
 
 
 @router.get("")
-def health_check(settings: Annotated[Settings, Depends(get_settings)]):
+async def health_check(settings: Annotated[Settings, Depends(get_settings)]):
     return {"status": "ok", "config": settings.model_dump()}
