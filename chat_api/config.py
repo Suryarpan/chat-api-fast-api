@@ -2,14 +2,14 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str
+    app_name: str = "Chat API"
     debug: bool = False
     # DB creds
     mysql_host: str = "127.0.0.1"
     mysql_port: int = 3306
-    mysql_user: str
-    mysql_password: str
-    mysql_database: str
+    mysql_user: str = ""
+    mysql_password: str = ""
+    mysql_database: str = "chat_api"
     # APP actives
     user_active: bool = False
 
