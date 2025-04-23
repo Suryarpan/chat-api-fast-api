@@ -9,7 +9,12 @@ if __name__ == "__main__":
     if settings.debug:
         log_level = "debug"
     config = uvicorn.Config(
-        "chat_api:create_app", factory=True, port=8000, log_level=log_level, ws="none"
+        "chat_api:create_app",
+        factory=True,
+        host=settings.app_host,
+        port=settings.app_port,
+        log_level=log_level,
+        ws="none",
     )
     server = uvicorn.Server(config)
     server.run()
