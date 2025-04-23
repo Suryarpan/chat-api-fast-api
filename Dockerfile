@@ -16,8 +16,11 @@ ENV PATH="${PATH}:${POETRY_VENV}/bin"
 
 WORKDIR /app
 
+COPY pyproject.toml poetry.lock poetry.toml README.md ./
+RUN poetry install --no-interaction --no-cache --compile --no-root --no-directory --only main
+
 COPY . .
 
-RUN poetry install --no-interaction --compile --no-directory --only main
+RUN poetry install --only main
 
 CMD [ "poetry", "run", "python", "-m", "chat_api.main" ]

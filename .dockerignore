@@ -1,2 +1,5 @@
 _data
 **/*.pyc
+.venv
+.vscode
+.env
