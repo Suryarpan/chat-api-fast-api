@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     mysql_user: str = ""
     mysql_password: str = ""
     mysql_database: str = "chat_api"
+    mysql_pool: int = 10
     # APP actives
     user_active: bool = False
 
