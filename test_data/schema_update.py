@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 from pathlib import Path
 
 from pymysql import connect
@@ -6,6 +7,7 @@ from pymysql.cursors import DictCursor
 from chat_api.dependencies import get_settings
 
 
+@contextmanager
 def get_connection():
     settings = get_settings()
     conn = connect(
@@ -27,7 +29,7 @@ def get_connection():
 def run_queries(data: str):
     queries = data.split(";")
     print(queries)
-    for conn in get_connection():
+    with get_connection() as conn:
         with conn.cursor() as cur:
             for query in queries:
                 print("query to be processed:", query)
@@ -52,7 +54,6 @@ def load_query(file_name: str):
 
 def main():
     files = [
-        "user_schema.sql",
         "message_schema.sql",
     ]
     for file in files:
