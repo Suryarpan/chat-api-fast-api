@@ -14,6 +14,7 @@ services:
       CHAT_API_DEBUG: ${CHAT_API_DEBUG}
       CHAT_API_APP_HOST: "0.0.0.0"
       CHAT_API_APP_PORT: 5000
+      CHAT_API_JWT_SECRET: ${CHAT_API_JWT_SECRET}
       # db config
       CHAT_API_MYSQL_HOST: mysql-db
       CHAT_API_MYSQL_USER: ${CHAT_API_MYSQL_USER}
